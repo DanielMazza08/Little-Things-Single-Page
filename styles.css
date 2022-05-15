@@ -1,0 +1,304 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #16161e;
+    display: grid;
+    place-items: center;
+}
+
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 120px;
+    
+}
+
+.bell{
+    background-color: #1a1b26;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 15px;
+    cursor: pointer;
+
+    display: flex;
+}
+
+.bell__item{
+    width: 80px;
+    margin: auto;
+}
+
+.bell__item:hover{
+    animation: infinite shake 1s ;
+}
+
+@keyframes shake {
+    10%{
+        transform: rotate(15deg);
+    }
+    20%{
+        transform: rotate(-15deg);
+    }
+    30%{
+        transform: rotate(15deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+}
+
+/* Card Shadow Animation */
+
+span {
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.card{
+    width: 150px;
+    height: 200px;
+    background: #252636;
+    border-radius: 4px;
+    transition: box-shadow .5s transform .25s;
+
+    display: grid;
+    place-content: center;
+    font-size: 50px;
+}
+
+.card:hover {
+    box-shadow:
+        5px 3px rgba(255, 255, 255, .05),
+        10px 6px rgba(255, 255, 255, .04),
+        15px 9px rgba(255, 255, 255, .03);
+    transform:
+        rotate(20deg) skew(-10deg, -5deg);
+    /* To compensate for the rotation we also add a skew on both the X and Y axis to make the rotation effect look more pleasing. No specific reason for the values, just play around with the numbers until you get a result that looks good to you.*/
+    transition:
+        box-shadow .75s,
+        transform .375s;
+    /* Adding a slower animation when hovering over the card. */
+}
+
+/* Gradient Border Animation */
+
+.text{
+    font-size: 2.3em;
+    color: gray;
+    padding: 8px;
+}
+
+.card2 {
+    width: 200px;
+    height: 250px;
+    margin: auto;
+    background-color: #151515;
+    border: 5px solid;
+    /* The border image property will work in a similar manner as a background image. This will allow us to use a gradient for the border. The '1' specifies the border width. In this case using a single value means stretch 100% across all corners. You are able to set up to 4 values corresponding to each corner. */
+    border-image:
+        linear-gradient(#ff512f,
+            #dd2476,
+            #1c64ff) 1;
+    animation: rotate 2.5s ease-in infinite;
+}
+
+@keyframes rotate {
+    50% {
+        border-image:
+            linear-gradient(360deg,
+                #ff512f,
+                #dd2476,
+                #1c64ff) 1;
+    }
+}
+
+/* Overlay Effect */
+
+.img{
+    width: 200px;
+    height: 250px;
+    background-image: url("assets/img1.png");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    outline: 2px solid ;
+}
+
+.textHover{
+    font-size: 1.8rem;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    color: #fafafa;
+    background-color: #3d9db898;
+    position: absolute;
+}
+
+.img::after{
+    content: "Hello, I'm Rover";
+    font-size: 1.8rem;
+    color: #fafafa;
+    background-color: #3d9db898;
+    position: absolute;
+    top: 0;
+    bottom: 75%;
+    left: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transition: opacity .25s;
+}
+
+.img:hover::after{
+    opacity: 1;
+}
+
+.img:hover .textHover{
+    opacity: 0;
+}
+
+/* Hover Button */
+
+.cta{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background: none;
+    border: none;
+    padding: 12px 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+.cta::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+    translateX(calc(100% + 4px));
+    width: 45px;
+    height: 45px;
+    background: #dc156c;
+    border-radius: 50px;
+    transition: transform .25s .25s
+    cubic-bezier(0, 0, .5, 2), width .25s cubic-bezier(0, 0, .5, 2);
+    z-index: -1;
+}
+
+.cta:hover::before{
+    width: 100%;
+    transform: translateY(-50%)
+    translateX(-18px);
+    transition: transform .25s .25s
+    cubic-bezier(0, 0, .5, 2), width .25s cubic-bezier(0, 0, .5, 2);
+}
+
+.cta i{
+    margin-left: 5px;
+    transition: transform .25s .4s
+    cubic-bezier(0, 0, .5, 2);
+}
+
+.cta:hover i{
+    transform: translateX(3px);
+}
+
+/* Spinner */
+
+.spinner {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: auto;
+}
+.spinner::before,
+.spinner::after{
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+}
+.spinner::before {
+    width: 100%;
+    height: 100%;
+    background-image:linear-gradient(
+        0deg, #ff00cc 0%,
+        #333399 100% );
+    animation: spin .5s infinite linear;
+}
+.spinner::after {
+    width: 85%;
+    height: 85%;
+    background-color: #151515;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Toggle Switch */
+
+#toggle{
+    display: none;
+}
+
+/* .container{
+    height: 100%;
+
+    display: grid;
+    place-items: center;
+} */
+
+.button{
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.button::after{
+    content: url('assets/sun.svg');
+    width: 40px;
+    height: 40px;
+    background-color: #e03c3c;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+    position: absolute;
+    top: -5px;
+    left: 0;
+    display: grid;
+    place-content: center;
+    line-height: 0;
+    transition: background-color 1s, transform 1s ease;
+}
+
+#toggle:checked + .button::after{
+    content: url('assets/moon.svg');
+    background-color: #383e9a;
+    transform: translateX(40px) rotate(360deg);
+}
