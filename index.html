@@ -6,9 +6,11 @@
     <title>Little Things</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="container">
+
         <div class="bell">
             <img src="assets/bell.svg" alt="bell" class="bell__item">
         </div>
@@ -36,6 +38,97 @@
             <input type="checkbox" id="toggle">
             <label for="toggle" class="button"></label>
         </div>
+
+        <div class="loader">
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <span>Loading...</span>
+        </div>
+
+        <a href="#" class="white-button">Learn more</a>
+
+        <section class="photo-container">
+            <article class="photo">
+                <img src="/assets/Asuna.jpg" alt="" class="photo__image">
+                <img src="/assets/Aincrad.jpg" alt="" class="photo__image">
+            </article>
+        </section>
+
+        <div class="input-group">
+            <input type="email" placeholder="email@domain.com" id="email">
+
+            <label for="email">
+                <span class="icon"><i class="ri-mail-line"></i>
+                <span></span> Email Address
+                </span>  
+            </label>
+        </div>
+
+        <div class="profile">
+            <img src="/assets/Profile.jpg" alt="">
+            <div class="details">
+                <h4>FrontEnd Developer</h4>
+                <p>In Progress...</p>
+                <div class="social-icons">
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="notification-wrapper">
+            <span class="heart-icon">
+                <i class="ri-heart-3-line"></i>
+            </span>
+            <div class="notification">
+                <span class="notification__item">
+                    <i class="ri-chat-3-fill"></i> 7
+                </span>
+                <span class="notification__item">
+                    <i class="ri-heart-3-fill"></i> 120
+                </span>
+                <span class="notification__item">
+                    <i class="ri-user-3-fill"></i> 40
+                </span>
+            </div>
+        </div>
+
+        <div class="icons">
+            <a href="#" class="social social--instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="#" class="social social--twitter">
+              <i class="ri-twitter-line"></i>
+            </a>
+            <a href="#" class="social social--linkedin">
+              <i class="ri-linkedin-line"></i>
+            </a>
+            <a href="#" class="social social--github">
+              <i class="ri-github-line"></i>
+            </a>
+          </div>
+
+          <div class="progress-bar">
+            <span class="number" data-value="100"></span>
+            <svg height="150" width="150" class="circle">
+              <circle cx="75" cy="75" r="65" stroke="#d1c5fc" stroke-width="20" fill="none" />
+            </svg>
+          </div>
+
+
     </div>
+    <script>
+        let counter = 0;
+setInterval(() => {
+    const percentageNumber = document.querySelector('.number');
+    const percentageNumberValue = Number(percentageNumber.getAttribute('data-value'));
+    if (counter !== percentageNumberValue) {
+        counter++;
+        percentageNumber.innerHTML = `${counter}%`;
+    }
+}, 80);
+    </script>
 </body>
 </html>
